@@ -1,4 +1,4 @@
-package src.main.resources.script
+package src.main.resources.script.CA
 
 class Employee {
     private String personIdExternal

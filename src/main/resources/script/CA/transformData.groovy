@@ -1,4 +1,4 @@
-package src.main.resources.script
+package src.main.resources.script.CA
 
 import com.sap.gateway.ip.core.customdev.util.Message
 //import com.sap.it.api.ITApiFactory
