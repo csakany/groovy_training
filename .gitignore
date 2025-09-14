@@ -1,0 +1,7 @@
+# Build outputs
+out/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
