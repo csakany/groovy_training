@@ -12,12 +12,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="groovy-2.4.21-sources" level="project" />
-    <orderEntry type="library" exported="" name="apache.camel.core" level="project" />
-    <orderEntry type="library" exported="" name="cpi-mock-msg" level="project" />
-    <orderEntry type="library" exported="" name="groovy-xml-3.0.4" level="project" />
     <orderEntry type="library" exported="" name="javax.xml.bind.jaxb.api" level="project" />
     <orderEntry type="library" exported="" name="javax.activation" level="project" />
-    <orderEntry type="library" exported="" name="commons-lang3-3.14.0" level="project" />
+    <orderEntry type="library" exported="" name="cpi-mock-msg" level="project" />
+    <orderEntry type="library" exported="" name="codehaus.groovy.all" level="project" />
+    <orderEntry type="library" exported="" name="cloud.integration.script.apis-2.7.1" level="project" />
+    <orderEntry type="library" exported="" name="codehaus.groovy.xml" level="project" />
+    <orderEntry type="library" name="apache.camel.core" level="project" />
   </component>
 </module>

@@ -1,11 +1,14 @@
 <component name="libraryTable">
   <library name="codehaus.groovy.xml" type="repository">
-    <properties maven-id="org.codehaus.groovy:groovy-xml:2.4.1" />
+    <properties maven-id="org.codehaus.groovy:groovy-xml:2.4.21" />
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-xml/2.4.1/groovy-xml-2.4.1.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.4.1/groovy-2.4.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-xml/2.4.21/groovy-xml-2.4.21.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.4.21/groovy-2.4.21.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-xml/2.4.21/groovy-xml-2.4.21-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.4.21/groovy-2.4.21-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="cpi-mock-msg">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../sap-press-cpi-groovy-mock-msg/out/artifacts/cpi_mock_msg/cpi-mock-msg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/cpi-mock-msg.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

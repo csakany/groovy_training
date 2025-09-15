@@ -4,7 +4,7 @@ import com.sap.gateway.ip.core.customdev.util.Message
 //import com.sap.it.api.ITApiFactory
 //import com.sap.it.api.mapping.ValueMappingApi
 import groovy.xml.MarkupBuilder
-import groovy.xml.XmlParser
+
 
 import java.time.format.DateTimeFormatter
 
