@@ -1,4 +1,4 @@
-package CA
+
 
 import com.sap.gateway.ip.core.customdev.util.Message
 import org.apache.camel.CamelContext
@@ -9,7 +9,7 @@ import org.apache.camel.support.DefaultExchange
 // Load Groovy Script
 GroovyShell shell = new GroovyShell()
 Script script = shell.parse(new File(
-        '../../../src/main/resources/script/CA/preprocessNewHires.groovy'))
+        '../../src/main/resources/script/sample.groovy'))
 // Initialize CamelContext and exchange for the message
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
@@ -19,7 +19,7 @@ Message msg = new Message(exchange)
 // Set exchange body in case Type Conversion is required
 //exchange.getIn().setBody(body)
 //msg.setBody(exchange.getIn().getBody())
-def body = new File('../../../data/CA/in/0.xml')
+def body = new File('../../data/in/sample.xml')
 // Set exchange body in case Type Conversion is required
 exchange.getIn().setBody(body)
 msg.setBody(exchange.getIn().getBody())
