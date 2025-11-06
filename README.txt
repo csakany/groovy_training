@@ -10,7 +10,7 @@ Dátum kezelés
 property dateTime -> létre kell hozni egy filter stringet ami adott date timehoz tartozó hónap legelső napját hozza vissza
 futtatás pillanatához tartozó hónap első nap vagy következő hónap első nap
 Filter string létrehozás amit EffectiveDate-d lekérdezéshez tudunk használni
-$filter=userId in '101001’,'101005’,'101010’,'101015’,'101017’,'101018’,'101024’,'101026’,'101032’,'101035’,'101037’,'101050'&fromDate=1900-01-01&toDate=2025-11-05
+$filter=userId in '101001’,'101005’,'101010’,'101015’,'101017’,'101018’,'101024’,'101026’,'101032’,'101035’,'101037’,'101050'&fromDate=2025-11-01&toDate=2025-11-31
 
 c,
 Bemeneti paraméter 'EFFECTIVE' akkor a másodikat állítja be ha 'ACTUAL' akkor az elsőt használja, egyéb esetben állítsa üresre a filter stringet (setProperty)

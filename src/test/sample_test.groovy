@@ -24,7 +24,8 @@ def body = new File('../../data/in/sample.xml')
 exchange.getIn().setBody(body)
 msg.setBody(exchange.getIn().getBody())
 
-//msg.setProperty("validateOnly","true")
+msg.setProperty("userIds", "101001,101005,101010,101015")
+msg.setProperty("queryType","ACTUAL")
 
 
 
@@ -32,7 +33,7 @@ msg.setBody(exchange.getIn().getBody())
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
 // Display results of script in console
-println("Body:\r\n${msg.getBody(String)}")
+//println("Body:\r\n${msg.getBody(String)}")
 //println('Headers:')
 //msg.getHeaders().each { k, v -> println("$k = $v") }
 println('Properties:')
