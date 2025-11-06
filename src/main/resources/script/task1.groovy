@@ -1,58 +1,32 @@
 package src.main.resources.script
+
 import com.sap.gateway.ip.core.customdev.util.Message
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
+/**
+ * Task 1 demonstration script – String handling and message properties.
+ *
+ * Scenario: HR needs a quick welcome note for each new hire. The script
+ * reads message properties that contain onboarding information and builds
+ * a friendly summary that can be sent as part of an onboarding email.
+ */
 def Message processData(Message message) {
+    String firstName = (message.getProperty("firstName") ?: "Colleague").toString()
+    String lastName = (message.getProperty("lastName") ?: "").toString()
+    String jobTitle = (message.getProperty("jobTitle") ?: "our team").toString()
+    String startDate = message.getProperty("startDate")?.toString()
+    String hrContact = (message.getProperty("hrContact") ?: "the HR team").toString()
 
-    //1. task, A part
-
-
-    // Requesting Property
-    def userIds = message.getProperty("userIds")
-
-    // Check if the Property exists, if not, return with error message
-    if (!userIds) {
-        message.setProperty("filterString", "userId Property does not exist!")
-        return message
+    List<String> sections = []
+    sections << "Welcome ${firstName} ${lastName}".trim()
+    sections << "We are excited to have you join us as ${jobTitle}."
+    if (startDate) {
+        sections << "Your official start date is ${startDate}."
     }
+    sections << "If you have any questions, please reach out to ${hrContact}."
 
-    // Remove spaces if there is any
-    def cleanIds = userIds.replace(" ", "")
-
-    // Replace commas and put apostrophes next to each userId, and at the beginning and at the end of the whole string
-    def quotedIds = "'" + cleanIds.replace(",", "','") + "'"
-
-    // Complete the Odata filter with the just created string of userIds, and return the message as a Property
-    def filterString = "\$filter=userId in ${quotedIds}"
-
-    message.setProperty("filterString",filterString)
-
-
-
-    //1. task, B part
-
-    //Query the real world date
-    LocalDate today = LocalDate.now()
-    // Your formatter
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-    // Example input date
-    String inputDate = today.format(formatter)
-    LocalDate date = LocalDate.parse(inputDate, formatter)
-    // First day of month = same year & month, day = 1
-    LocalDate firstDayOfMonth = date.withDayOfMonth(1)
-    // Last day of month = use lengthOfMonth()
-    LocalDate lastDayOfMonth = date.withDayOfMonth(date.lengthOfMonth())
-    // Format results
-    String firstDayStr = firstDayOfMonth.format(formatter)
-    String lastDayStr  = lastDayOfMonth.format(formatter)
-    println ("First day of month: $firstDayStr")
-    println ("Last day of month:  $lastDayStr")
-
-
-    //1. task, C part
-
+    String summary = sections.join(' ')
+    message.setBody(summary)
+    message.setProperty("welcomeSummaryLength", summary.size())
 
     return message
-
 }
