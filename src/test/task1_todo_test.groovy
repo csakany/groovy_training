@@ -9,7 +9,7 @@ import org.apache.camel.support.DefaultExchange
 // Load Groovy Script
 GroovyShell shell = new GroovyShell()
 Script script = shell.parse(new File(
-        '../../src/main/resources/script/sample.groovy'))
+        '../../src/main/resources/script/task1_todo.groovy'))
 // Initialize CamelContext and exchange for the message
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
