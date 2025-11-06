@@ -27,7 +27,7 @@ def Message processData(Message message) {
         employee.applyRaise(2500G)
     }
 
-    def summary = "${employee.name} now earns $${employee.salary} (Payroll ID valid: ${validId})"
+    def summary = "${employee.name} now earns ${employee.salary} (Payroll ID valid: ${validId})"
     message.setBody(summary)
     message.setProperty("raiseApplied", validId)
     message.setProperty("payrollIdValid", validId)
