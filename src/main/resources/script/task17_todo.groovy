@@ -1,10 +1,5 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 
-class EmployeeProfile {
-    String name
-    String department
-}
-
 def Message processData(Message message) {
     def instructions = """Practice Task 17: Define a class.\n""" +
             "1. Create a class with name and department fields.\n" +

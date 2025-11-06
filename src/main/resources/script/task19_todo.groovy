@@ -1,20 +1,5 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 
-class TeamMember {
-    String name
-    void introduce(StringBuilder output) {
-        // TODO: append a simple introduction.
-    }
-}
-
-class TeamLead extends TeamMember {
-    String team
-    @Override
-    void introduce(StringBuilder output) {
-        // TODO: call super.introduce and add a line about the team.
-    }
-}
-
 def Message processData(Message message) {
     def instructions = """Practice Task 19: Extend a class.\n""" +
             "1. Create a base class with an introduce method.\n" +

@@ -1,14 +1,5 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 
-class PayrollEmployee {
-    String name
-    BigDecimal salary
-    BigDecimal applyRaise(BigDecimal percent) {
-        // TODO: update salary using the percent value.
-        return salary
-    }
-}
-
 def Message processData(Message message) {
     def instructions = """Practice Task 18: Add behavior to a class.\n""" +
             "1. Create a class with a salary field.\n" +
