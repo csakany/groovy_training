@@ -1,3 +1,5 @@
+// This demonstration models inheritance so a TeamLead extends TeamMember and customizes introductions.
+// It aligns with the inheritance and overriding lessons from slides 25-26 while reinforcing message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 class TeamMember {

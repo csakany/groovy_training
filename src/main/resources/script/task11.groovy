@@ -1,3 +1,5 @@
+// This demonstration shows default method parameters by calculating raises with optional percentages.
+// It references the method flexibility from slides 12-13 together with the message property usage from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 BigDecimal applyRaise(BigDecimal salary, BigDecimal percent = 5G) {

@@ -1,3 +1,5 @@
+// This demonstration uses a Groovy switch to tailor HR contract guidance for different worker types.
+// It showcases the flexible switch logic presented on slide 6 together with the message usage practices from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

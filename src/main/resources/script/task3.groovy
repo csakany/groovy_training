@@ -1,3 +1,5 @@
+// This demonstration performs payroll math with BigDecimal to show arithmetic operators and formatting for HR compensation reporting.
+// It ties back to the operator explanations on slides 4-5 and the message handling reminders from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

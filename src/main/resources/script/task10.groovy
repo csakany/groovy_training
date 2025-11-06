@@ -1,3 +1,5 @@
+// This demonstration extracts repeated logic into a helper method to describe employee roles concisely.
+// It connects to the method structure guidance on slides 12-13 and the message manipulation basics on slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 String buildSummary(String name, String role) {

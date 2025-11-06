@@ -1,3 +1,5 @@
+// This demonstration creates a simple EmployeeProfile class to bundle HR data with object instances.
+// It references the class fundamentals on slides 23-24 together with message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 class EmployeeProfile {

@@ -1,3 +1,5 @@
+// This demonstration evaluates promotion eligibility with if/else and boolean logic using HR review data.
+// It illustrates the conditional patterns from slides 6-7 while continuing the message property techniques from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

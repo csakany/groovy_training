@@ -1,3 +1,5 @@
+// This demonstration updates a salary inside a JSON payload and re-serializes it for downstream systems.
+// It reinforces the JSON transformation pattern from slides 39-40 together with message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput

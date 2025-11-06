@@ -1,3 +1,5 @@
+// This demonstration adjusts department headcount in a map to emphasize key-value collection skills.
+// It reinforces the map techniques from slides 19-20 alongside message property usage from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

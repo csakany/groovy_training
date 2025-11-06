@@ -1,3 +1,5 @@
+// This demonstration filters colleagues with a closure to spotlight HR teams using list and map data.
+// It ties into the closure techniques from slides 14-16 plus the collection operations from slides 17-20 and message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

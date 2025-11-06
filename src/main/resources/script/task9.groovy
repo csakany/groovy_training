@@ -1,3 +1,5 @@
+// This demonstration validates raise requests with try/catch/finally to keep HR workflows resilient.
+// It directly reflects the exception handling practices from slides 10-11 alongside the message access focus from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

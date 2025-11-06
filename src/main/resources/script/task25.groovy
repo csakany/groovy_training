@@ -1,3 +1,5 @@
+// This demonstration parses employee JSON to count skills for HR capability tracking.
+// It reflects the JSON parsing workflow from slides 36-38 while using message properties per slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 import groovy.json.JsonSlurper
 

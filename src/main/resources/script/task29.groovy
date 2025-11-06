@@ -1,3 +1,5 @@
+// This demonstration checks for a required EmployeeId header before processing to emphasize safe message access.
+// It highlights the message context best practices from slides 47-48 and the defensive programming reminders from slide 59.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

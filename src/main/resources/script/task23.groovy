@@ -1,3 +1,5 @@
+// This demonstration lists the first company codes from an XML payload to practice traversal and selection.
+// It connects the XML transformation ideas from slides 29-33 with the message handling reminders from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 import groovy.xml.XmlSlurper
 

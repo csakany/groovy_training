@@ -1,3 +1,5 @@
+// This demonstration adds behavior to a PayrollEmployee class to calculate raises with encapsulated logic.
+// It showcases the class and method design topics from slides 23-25 and maintains message access patterns from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 class PayrollEmployee {

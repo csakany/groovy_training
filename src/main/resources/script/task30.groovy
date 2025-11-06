@@ -1,3 +1,5 @@
+// This demonstration enforces mandatory status properties and throws an error when validation fails.
+// It aligns with the error handling advice from slides 51-52 and the broader best-practice guidance on slide 59.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

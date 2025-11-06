@@ -1,3 +1,5 @@
+// This demonstration summarizes time-sheet entries by calculating totals and averages for HR attendance reviews.
+// It combines the loop patterns from slide 8 with list processing ideas from slides 17-18 and message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

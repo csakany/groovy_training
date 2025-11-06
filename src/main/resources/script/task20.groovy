@@ -1,3 +1,5 @@
+// This demonstration contrasts abstract StaffMember roles for interns and mentors in HR mentoring programs.
+// It illustrates the abstract class guidance from slides 27-28 and continues applying message property usage from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 abstract class StaffMember {

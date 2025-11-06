@@ -1,3 +1,5 @@
+// This demonstration casts message properties into strongly typed values to highlight Groovy's dynamic typing and type inspection.
+// It directly connects to the variables and data type guidance from slides 2-3 alongside the message context usage from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {

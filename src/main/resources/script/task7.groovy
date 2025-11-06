@@ -1,3 +1,5 @@
+// This demonstration builds numbered training steps with a while loop to emphasize iterative processing in HR plans.
+// It reinforces the loop control concepts from slide 8 along with message property usage from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
