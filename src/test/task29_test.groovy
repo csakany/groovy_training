@@ -5,13 +5,12 @@ import org.apache.camel.impl.DefaultCamelContext
 import org.apache.camel.support.DefaultExchange
 
 GroovyShell shell = new GroovyShell()
-Script script = shell.parse(new File('../../src/main/resources/script/task1.groovy'))
+Script script = shell.parse(new File('../../src/main/resources/script/task29.groovy'))
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)
-msg.setBody("")
-msg.setProperty("employeeName", "Avery Johnson")
-msg.setProperty("department", "Human Resources")
+msg.setBody("Annual review data")
+msg.setHeader("EmployeeId", "101045")
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
 println("Body:\n${msg.getBody(String)}")
