@@ -1,24 +1,25 @@
-// This demonstration uses a Groovy switch to tailor HR contract guidance for different worker types.
-// It showcases the flexible switch logic presented on slide 6 together with the message usage practices from slide 47.
+// This demonstration classifies training progress with a Groovy switch that handles ranges and defaults for HR reporting.
+// It expands on the switch examples from slide 6 while applying CPI message patterns from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
-    def contractType = message.getProperty("contractType") ?: "FullTime"
-    def note
-    switch (contractType) {
-        case "FullTime":
-            note = "Full-time employees receive full benefits."
+    Integer completion = (message.getProperty("completionPercent") ?: "0") as Integer
+    String status
+    switch (completion) {
+        case 0..49:
+            status = "Learning just started."
             break
-        case "PartTime":
-            note = "Part-time employees receive prorated benefits."
+        case 50..89:
+            status = "Training is on track."
             break
-        case "Contractor":
-            note = "Contractors collaborate for specific projects."
+        case 90..100:
+            status = "Training completed."
             break
         default:
-            note = "Review contract details with HR."
+            status = "Review completion entry with the team."
     }
-    message.setBody("Contract Type: ${contractType}\nNote: ${note}")
-    message.setProperty("contractNote", note)
+
+    message.setBody("Completion: ${completion}%\nStatus: ${status}")
+    message.setProperty("trainingStatus", status)
     return message
 }

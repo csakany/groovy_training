@@ -13,6 +13,6 @@ def xmlContent = new File('../../data/in/manager.xml').text
 msg.setBody(xmlContent)
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
-println("Body:\n${msg.getBody(String)}")
+println("Body:\n${msg.getBody()}")
 println('Properties:')
 msg.getProperties().each { k, v -> println("$k = $v") }

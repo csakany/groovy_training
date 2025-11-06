@@ -9,10 +9,13 @@ Script script = shell.parse(new File('../../src/main/resources/script/task30.gro
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)
-msg.setBody("")
-msg.setProperty("employeeStatus", "Active")
+def employeeXml = '<Employee departmentCode="HR"><Name>Avery</Name></Employee>'
+def directoryXml = '<Departments><Department code="HR"><Name>Human Resources</Name></Department></Departments>'
+msg.setBody(employeeXml)
+msg.setProperty("departmentDirectory", directoryXml)
+msg.setProperty("delayMillis", "5")
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
-println("Body:\n${msg.getBody(String)}")
+println("Body:\n${msg.getBody()}")
 println('Properties:')
 msg.getProperties().each { k, v -> println("$k = $v") }

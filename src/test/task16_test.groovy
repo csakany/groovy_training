@@ -12,6 +12,6 @@ Message msg = new Message(exchange)
 msg.setBody("")
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
-println("Body:\n${msg.getBody(String)}")
+println("Body:\n${msg.getBody()}")
 println('Properties:')
 msg.getProperties().each { k, v -> println("$k = $v") }

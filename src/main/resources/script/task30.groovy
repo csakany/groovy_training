@@ -1,15 +1,30 @@
-// This demonstration enforces mandatory status properties and throws an error when validation fails.
-// It aligns with the error handling advice from slides 51-52 and the broader best-practice guidance on slide 59.
+// This demonstration pauses briefly before enriching an employee XML body with department details from a property-stored XML.
+// It illustrates CPI timing controls and cross-document lookups from slides 53-57 while applying the message techniques on slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
+import groovy.util.XmlSlurper
+import groovy.xml.XmlUtil
 
 def Message processData(Message message) {
-    def requiredProperty = message.getProperty("employeeStatus")
-    if (!requiredProperty) {
-        throw new Exception("employeeStatus property is required for validation.")
+    def employeeXmlText = message.getBody() as String
+    def directoryXmlText = message.getProperty("departmentDirectory") as String ?: '<Departments/>'
+
+    def delayMillis = (message.getProperty("delayMillis") ?: "50") as Long
+    sleep(delayMillis)
+
+    def employeeDoc = new XmlSlurper(false, false).parseText(employeeXmlText)
+    def directoryDoc = new XmlSlurper(false, false).parseText(directoryXmlText)
+    def departmentCode = employeeDoc.@departmentCode?.text()
+    def departmentName = directoryDoc.Department.find { it.@code.text() == departmentCode }?.Name?.text() ?: "Unknown"
+
+    if (!employeeDoc.DepartmentName) {
+        employeeDoc.appendNode { DepartmentName(departmentName) }
+    } else {
+        employeeDoc.DepartmentName.replaceBody(departmentName)
     }
-    def note = requiredProperty == 'Active' ? 'Employee is active.' : 'Employee is not active.'
-    message.setBody(note)
-    message.setProperty("statusChecked", true)
-    message.setProperty("employeeStatus", requiredProperty)
+
+    def enrichedXml = XmlUtil.serialize(employeeDoc)
+    message.setBody(enrichedXml)
+    message.setProperty("departmentName", departmentName)
+    message.setProperty("delayAppliedMillis", delayMillis)
     return message
 }

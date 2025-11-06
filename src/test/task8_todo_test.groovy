@@ -13,6 +13,6 @@ msg.setBody("")
 msg.setProperty("hourLogs", "8, 7, 9, 8")
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
-println("Body:\n${msg.getBody(String)}")
+println("Body:\n${msg.getBody()}")
 println('Properties:')
 msg.getProperties().each { k, v -> println("$k = $v") }

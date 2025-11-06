@@ -1,15 +1,12 @@
 import com.sap.gateway.ip.core.customdev.util.Message
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
 
 def Message processData(Message message) {
     /*
-    Practice Task 26: Modify JSON content.
-    1. Parse the employeeJson property.
-    2. Update one of the values (for example salary).
-    3. Convert the structure back to JSON text.
-    4. Set the pretty printed JSON as the body.
-    Next step: JsonOutput.toJson turns Groovy maps back into JSON.
+    Practice Task 26: Log a header and payload snapshot.
+    - Read a useful header (for example X-CorrelationId) from the message.
+    - If a messageLogFactory is available, add the body as an attachment and record the header as a string property.
+    - Store whether an attachment was created and echo the header in the body like the demo.
+    Next step: Replace the TODO with your own monitoring logic.
     */
     // TODO: Implement the practice steps above.
     return message

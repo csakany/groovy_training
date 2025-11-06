@@ -14,6 +14,6 @@ msg.setProperty("employeeName", "Lena Torres")
 msg.setProperty("team", "Talent Development")
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
-println("Body:\n${msg.getBody(String)}")
+println("Body:\n${msg.getBody()}")
 println('Properties:')
 msg.getProperties().each { k, v -> println("$k = $v") }

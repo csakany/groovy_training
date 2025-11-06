@@ -9,10 +9,10 @@ Script script = shell.parse(new File('../../src/main/resources/script/task23.gro
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)
-def xmlContent = new File('../../data/in/DM_Training.xml').text
-msg.setBody(xmlContent)
+msg.setBody("")
+msg.setProperty("employeeList", "Alex Kim|HR, Sam Lee|IT, Priya Patel|Finance")
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
-println("Body:\n${msg.getBody(String)}")
+println("Body:\n${msg.getBody()}")
 println('Properties:')
 msg.getProperties().each { k, v -> println("$k = $v") }

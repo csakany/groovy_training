@@ -1,13 +1,24 @@
-// This demonstration pulls HR onboarding properties from the CPI message and builds a welcome message with Groovy string interpolation.
-// It reinforces the variables and data type fundamentals from slides 2-3 and the CPI message access patterns from slide 47 of the training deck.
+// This demonstration blends Groovy's dynamic typing with string interpolation to welcome a new hire and inspect property types.
+// It reinforces the fundamentals from slides 2-4 and the CPI message techniques on slide 47 in a single onboarding example.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
     def name = message.getProperty("employeeName") ?: "New Hire"
     def department = message.getProperty("department") ?: "Company"
-    def greeting = "Welcome ${name} to the ${department} team!"
-    message.setBody(greeting)
+    Integer idValue = (message.getProperty("employeeId") ?: "0") as Integer
+    BigDecimal salaryValue = (message.getProperty("salary") ?: "0") as BigDecimal
+    Boolean activeValue = (message.getProperty("active") ?: "false").toBoolean()
+
+    def summary = """Welcome ${name} to the ${department} team!\n""" +
+            """Employee ID (${idValue.getClass().simpleName}): ${idValue}\n""" +
+            """Salary (${salaryValue.getClass().simpleName}): ${salaryValue.setScale(2, BigDecimal.ROUND_HALF_UP)}\n""" +
+            """Active (${activeValue.getClass().simpleName}): ${activeValue}"""
+
+    message.setBody(summary)
     message.setProperty("nameLength", name.length())
     message.setProperty("departmentUpper", department.toUpperCase())
+    message.setProperty("idType", idValue.getClass().simpleName)
+    message.setProperty("salaryType", salaryValue.getClass().simpleName)
+    message.setProperty("activeType", activeValue.getClass().simpleName)
     return message
 }

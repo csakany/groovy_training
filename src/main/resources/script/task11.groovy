@@ -1,16 +1,24 @@
-// This demonstration shows default method parameters by calculating raises with optional percentages.
-// It references the method flexibility from slides 12-13 together with the message property usage from slide 47.
+// This demonstration wraps property parsing in try/catch blocks to model safe HR score handling.
+// It illustrates the exception concepts from slides 10-11 together with CPI message patterns from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
-BigDecimal applyRaise(BigDecimal salary, BigDecimal percent = 5G) {
-    return salary + (salary * percent / 100)
-}
-
 def Message processData(Message message) {
-    def salary = (message.getProperty("currentSalary") ?: "0") as BigDecimal
-    def percentText = message.getProperty("raisePercent")
-    BigDecimal newSalary = percentText ? applyRaise(salary, (percentText as BigDecimal)) : applyRaise(salary)
-    message.setBody("New salary after raise: ${newSalary.setScale(2, BigDecimal.ROUND_HALF_UP)}")
-    message.setProperty("updatedSalary", newSalary.setScale(2, BigDecimal.ROUND_HALF_UP))
+    def ratingText = message.getProperty("engagementScore") ?: "unknown"
+    Integer score
+    String note
+    try {
+        score = ratingText as Integer
+        note = score >= 80 ? "High engagement" : "Monitor engagement"
+    } catch (NumberFormatException ex) {
+        score = null
+        note = "Engagement score missing or invalid."
+    } finally {
+        message.setProperty("rawScore", ratingText)
+    }
+
+    def summary = score ? "Score: ${score}\nNote: ${note}" : note
+    message.setBody(summary)
+    message.setProperty("engagementScore", score)
+    message.setProperty("engagementNote", note)
     return message
 }

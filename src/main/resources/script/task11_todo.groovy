@@ -1,18 +1,12 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 
-BigDecimal applyRaise(BigDecimal salary, BigDecimal percent = 5G) {
-    // TODO: calculate the salary after applying the raise percent.
-    return salary
-}
-
 def Message processData(Message message) {
     /*
-    Practice Task 11: Add a default parameter.
-    1. Create a method that increases a salary by a percent.
-    2. Use a default percent when none is provided.
-    3. Call the method with and without the optional argument.
-    4. Share the new salary in the body and a property.
-    Next step: Finish the applyRaise method so the math is correct.
+    Practice Task 11: Add safe parsing with try/catch.
+    - Read an engagement score (or similar metric) from properties.
+    - Attempt to convert it to an Integer and branch on the value; fall back gracefully if parsing fails.
+    - Mirror the demo by recording both the raw entry and a helpful note as properties.
+    Next step: Replace the TODO with your own exception handling code.
     */
     // TODO: Implement the practice steps above.
     return message

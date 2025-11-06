@@ -1,17 +1,29 @@
-// This demonstration lists the first company codes from an XML payload to practice traversal and selection.
-// It connects the XML transformation ideas from slides 29-33 with the message handling reminders from slide 47.
+// This demonstration builds a fresh employee directory XML with MarkupBuilder from comma-separated HR data.
+// It aligns with the XML generation guidance on slides 33-35 while applying the CPI message patterns from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
-import groovy.util.XmlSlurper
+import groovy.xml.MarkupBuilder
 
 def Message processData(Message message) {
-    def xmlText = message.getBody(String)
-    def parsed = new XmlSlurper().parseText(xmlText)
-    def companies = parsed.FOCompany.FOCompany
-    def firstFive = companies.take(5).collect { company ->
-        "${company.externalCode.text()} - ${company.name.text()}"
+    def employeeText = message.getProperty("employeeList") ?: "Alex Kim|HR,Sam Lee|IT"
+    def employees = employeeText.split(",").collect { it.trim() }.findAll { it }
+            .collect { entry ->
+                def parts = entry.split("\\|")
+                [name: parts[0], department: parts.length > 1 ? parts[1] : "General"]
+            }
+
+    def writer = new StringWriter()
+    def builder = new MarkupBuilder(writer)
+    builder.Employees {
+        employees.eachWithIndex { info, idx ->
+            Employee(id: idx + 1) {
+                Name(info.name)
+                Department(info.department)
+            }
+        }
     }
-    def summary = firstFive.join("\n")
-    message.setBody(summary)
-    message.setProperty("listedCompanies", firstFive.size())
+
+    def xmlOutput = writer.toString()
+    message.setBody(xmlOutput)
+    message.setProperty("employeeCount", employees.size())
     return message
 }

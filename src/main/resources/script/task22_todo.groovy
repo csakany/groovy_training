@@ -1,14 +1,14 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 import groovy.util.XmlSlurper
+import groovy.xml.XmlParser
 
 def Message processData(Message message) {
     /*
-    Practice Task 22: Read more XML values.
-    1. Reuse XmlSlurper to parse the message body.
-    2. Find the email and businessPhone elements.
-    3. Write the contact information to the body.
-    4. Store both values as properties for later steps.
-    Next step: The same parsed XML can deliver many fields.
+    Practice Task 22: Contrast XmlSlurper and XmlParser yourself.
+    - Read the XML from the body and parse it with both libraries.
+    - Extract at least one shared field and compare the resulting Groovy types.
+    - Print the findings in the body and store the type names as properties like the demo.
+    Next step: Replace the TODO with your own comparison logic.
     */
     // TODO: Implement the practice steps above.
     return message

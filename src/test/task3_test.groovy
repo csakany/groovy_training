@@ -15,6 +15,6 @@ msg.setProperty("bonus", "3500")
 msg.setProperty("taxRate", "15")
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
-println("Body:\n${msg.getBody(String)}")
+println("Body:\n${msg.getBody()}")
 println('Properties:')
 msg.getProperties().each { k, v -> println("$k = $v") }

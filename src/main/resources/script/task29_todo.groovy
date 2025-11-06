@@ -2,12 +2,11 @@ import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
     /*
-    Practice Task 29: Read headers and properties.
-    1. Fetch a header such as EmployeeId.
-    2. Check if the header exists before using it.
-    3. Build a short summary that includes the body text.
-    4. Store whether the header was present as a property.
-    Next step: Remember that headers and properties can both be null.
+    Practice Task 29: Fetch a value-mapping entry.
+    - Retrieve the ValueMapping API instance from message properties.
+    - Request a mapped value (for example CountryCode -> Region) using the same method signature as the demo.
+    - Show the mapped result in the body and store it as a property.
+    Next step: Replace the TODO with your own value-mapping lookup.
     */
     // TODO: Implement the practice steps above.
     return message

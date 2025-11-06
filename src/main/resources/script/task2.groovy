@@ -1,15 +1,17 @@
-// This demonstration casts message properties into strongly typed values to highlight Groovy's dynamic typing and type inspection.
-// It directly connects to the variables and data type guidance from slides 2-3 alongside the message context usage from slide 47.
+// This demonstration formats HR badge details with string helpers and interpolation to reinforce Groovy text basics.
+// It builds on the string handling ideas from slides 3-5 and continues the CPI message access from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
-    def idValue = (message.getProperty("employeeId") ?: "0") as Integer
-    def salaryValue = (message.getProperty("salary") ?: "0") as BigDecimal
-    def activeValue = (message.getProperty("active") ?: "false").toBoolean()
-    def summary = """Employee ID: ${idValue}\nID Type: ${idValue.getClass().simpleName}\nSalary Type: ${salaryValue.getClass().simpleName}\nActive Type: ${activeValue.getClass().simpleName}"""
-    message.setBody(summary)
-    message.setProperty("idType", idValue.getClass().simpleName)
-    message.setProperty("salaryType", salaryValue.getClass().simpleName)
-    message.setProperty("activeType", activeValue.getClass().simpleName)
+    def name = message.getProperty("employeeName") ?: "Team Member"
+    def jobTitle = message.getProperty("jobTitle") ?: "Associate"
+    def location = message.getProperty("location") ?: "Remote"
+
+    def initials = name.split(' ').findAll { it }.collect { it[0] }.join('').toUpperCase()
+    def badge = """Employee Badge\nName: ${name}\nRole: ${jobTitle}\nLocation: ${location}\nInitials: ${initials}"""
+
+    message.setBody(badge)
+    message.setProperty("badgeLabel", "${name} - ${jobTitle}")
+    message.setProperty("employeeInitials", initials)
     return message
 }

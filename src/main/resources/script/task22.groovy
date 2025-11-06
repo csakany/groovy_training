@@ -1,17 +1,22 @@
-// This demonstration pulls HR contact information from XML to practice navigating nested elements.
-// It reinforces the XmlSlurper techniques from slides 29-31 and message property usage from slide 47.
+// This demonstration compares XmlSlurper and XmlParser by reading the same manager XML with both APIs.
+// It continues the XML exploration from slides 29-32 and keeps the CPI message workflow from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 import groovy.util.XmlSlurper
+import groovy.xml.XmlParser
 
 def Message processData(Message message) {
-    def xmlText = message.getBody(String)
-    def parsed = new XmlSlurper().parseText(xmlText)
-    def manager = parsed.User[0]
-    def email = manager.email.text()
-    def phone = manager.businessPhone.text()
-    def summary = "Contact Email: ${email}\nPhone: ${phone}"
+    def xmlText = message.getBody() as String
+    def slurped = new XmlSlurper().parseText(xmlText)
+    def parsed = new XmlParser().parseText(xmlText)
+
+    def slurperName = slurped.User[0].displayName.text()
+    def parserName = parsed.User[0].displayName[0].text()
+
+    def summary = """XmlSlurper class: ${slurped.getClass().simpleName}\nXmlParser class: ${parsed.getClass().simpleName}\n""" +
+            """Slurper display name: ${slurperName}\nParser display name: ${parserName}"""
+
     message.setBody(summary)
-    message.setProperty("contactEmail", email)
-    message.setProperty("contactPhone", phone)
+    message.setProperty("slurperType", slurped.getClass().simpleName)
+    message.setProperty("parserType", parsed.getClass().simpleName)
     return message
 }

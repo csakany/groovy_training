@@ -2,12 +2,12 @@ import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
     /*
-    Practice Task 4: Make a promotion decision.
-    1. Fetch yearsOfService and performanceRating from message properties.
-    2. Use an if/else statement to decide if the employee qualifies.
-    3. Write a short explanation into the message body.
-    4. Store the decision as a property called promotionEligible.
-    Next step: Combine comparison and logical operators to reach a decision.
+    Practice Task 4: Use full if/else-if/else blocks for a performance review.
+    - Read properties such as employee name, performance rating, and tenure.
+    - Apply the same control structures from the demo to decide between promotion, mentoring, or improvement steps.
+    - Add a ternary expression for an additional message property that highlights any fast-track situations.
+    - Keep the TODO focused on the same Groovy flow constructs demonstrated.
+    Next step: Replace the TODO with your own branching logic.
     */
     // TODO: Implement the practice steps above.
     return message
