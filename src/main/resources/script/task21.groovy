@@ -1,7 +1,7 @@
 // This demonstration parses a manager directory XML payload to extract name and division details.
 // It ties directly to the XML parsing overview on slides 29-31 along with ongoing message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
-import groovy.xml.XmlSlurper
+import groovy.util.XmlSlurper
 
 def Message processData(Message message) {
     def xmlText = message.getBody(String)

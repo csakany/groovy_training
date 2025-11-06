@@ -1,5 +1,5 @@
 import com.sap.gateway.ip.core.customdev.util.Message
-import groovy.xml.XmlSlurper
+import groovy.util.XmlSlurper
 
 def Message processData(Message message) {
     /*

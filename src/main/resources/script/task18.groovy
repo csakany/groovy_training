@@ -1,24 +1,22 @@
-// This demonstration adds behavior to a PayrollEmployee class to calculate raises with encapsulated logic.
-// It showcases the class and method design topics from slides 23-25 and maintains message access patterns from slide 47.
+// This demonstration shows Task18PayrollEmployee with a method to apply raises for payroll adjustments.
+// It references the method and encapsulation coverage on slides 24-25 alongside message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
-class PayrollEmployee {
+class Task18PayrollEmployee {
     String name
     BigDecimal salary
-    BigDecimal applyRaise(BigDecimal percent) {
-        salary += salary * percent / 100
-        return salary
+
+    void applyRaise(BigDecimal amount) {
+        salary += amount
     }
 }
 
 def Message processData(Message message) {
-    def employee = new PayrollEmployee(
-            name: message.getProperty("employeeName") ?: "Colleague",
-            salary: (message.getProperty("currentSalary") ?: "0") as BigDecimal)
-    def percent = (message.getProperty("raisePercent") ?: "0") as BigDecimal
-    def updatedSalary = employee.applyRaise(percent)
-    def summary = "${employee.name}'s salary is now ${updatedSalary.setScale(2, BigDecimal.ROUND_HALF_UP)}"
-    message.setBody(summary)
-    message.setProperty("updatedSalary", updatedSalary.setScale(2, BigDecimal.ROUND_HALF_UP))
+    def employee = new Task18PayrollEmployee(
+            name: message.getProperty("employeeName") ?: "Taylor",
+            salary: (message.getProperty("salary") ?: 50000) as BigDecimal)
+    employee.applyRaise(2500G)
+    message.setBody("${employee.name} now earns $${employee.salary}")
+    message.setProperty("raiseApplied", true)
     return message
 }

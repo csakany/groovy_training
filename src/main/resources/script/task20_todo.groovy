@@ -2,12 +2,12 @@ import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
     /*
-    Practice Task 20: Implement abstract classes.
-    1. Create an abstract StaffMember with a role method.
-    2. Implement concrete subclasses for Intern and Mentor.
-    3. Instantiate each subclass with a name.
-    4. Show their role descriptions in the body.
-    Next step: Replace the placeholder return values with real text.
+    Practice Task 20: Work with an abstract class.
+    1. Create an abstract class (for example PracticeStaffMember) with a role method.
+    2. Add two subclasses that return different role names.
+    3. Instantiate them using message properties.
+    4. Print the role summary and store the roles in a property.
+    Next step: Make sure each subclass overrides role().
     */
     // TODO: Implement the practice steps above.
     return message

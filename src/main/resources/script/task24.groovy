@@ -1,7 +1,7 @@
 // This demonstration converts XML company data into CSV text to illustrate lightweight transformations.
 // It applies the XML parsing and generation concepts from slides 29-35 alongside message manipulation from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
-import groovy.xml.XmlSlurper
+import groovy.util.XmlSlurper
 
 def Message processData(Message message) {
     def xmlText = message.getBody(String)
