@@ -6,12 +6,14 @@ String buildSummary(String name, String role) {
 }
 
 def Message processData(Message message) {
-    def instructions = """Practice Task 10: Write and call a method.\n""" +
-            "1. Define a method that accepts a name and a job title.\n" +
-            "2. Return a short sentence that combines both values.\n" +
-            "3. Call the method inside processData.\n" +
-            "4. Store the length of the final sentence as summaryLength."
-    message.setBody(instructions)
-    message.setProperty("nextStep", "Replace the placeholder return value in buildSummary.")
+    /*
+    Practice Task 10: Write and call a method.
+    1. Define a method that accepts a name and a job title.
+    2. Return a short sentence that combines both values.
+    3. Call the method inside processData.
+    4. Store the length of the final sentence as summaryLength.
+    Next step: Replace the placeholder return value in buildSummary.
+    */
+    // TODO: Implement the practice steps above.
     return message
 }
