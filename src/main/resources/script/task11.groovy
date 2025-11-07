@@ -7,16 +7,20 @@ def Message processData(Message message) {
     Integer score
     String note
     try {
+        // as Integer attempts to coerce the string rating into a numeric score we can compare.
         score = ratingText as Integer
+        // The ternary operator quickly chooses a note based on the score threshold.
         note = score >= 80 ? "High engagement" : "Monitor engagement"
     } catch (NumberFormatException ex) {
         score = null
         note = "Engagement score missing or invalid."
     } finally {
+        // finally always executes, so setProperty here records the original text for auditing.
         message.setProperty("rawScore", ratingText)
     }
 
     def summary = score ? "Score: ${score}\nNote: ${note}" : note
+    // setBody publishes either the combined score summary or the validation warning.
     message.setBody(summary)
     message.setProperty("engagementScore", score)
     message.setProperty("engagementNote", note)

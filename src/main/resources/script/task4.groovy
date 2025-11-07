@@ -3,7 +3,9 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
+    // getProperty looks up message-scoped metadata, while the Elvis operator falls back to a default string when missing.
     def name = message.getProperty("employeeName") ?: "Colleague"
+    // (value as Integer) parses the property text into a primitive-friendly Integer for comparisons.
     int years = (message.getProperty("yearsOfService") ?: "0") as Integer
     int rating = (message.getProperty("performanceRating") ?: "0") as Integer
 
@@ -17,9 +19,11 @@ def Message processData(Message message) {
     }
 
     boolean fastTrack = years >= 7 && rating >= 5
+    // The ternary operator condition ? trueValue : falseValue keeps the fast-track message concise for reviewers.
     String fastTrackNote = fastTrack ? "Eligible for fast-track recognition." : "Standard review cadence applies."
 
     def summary = """Employee: ${name}\nYears of Service: ${years}\nRating: ${rating}\nDecision: ${decision}\n${fastTrackNote}"""
+    // setBody replaces the payload shown to downstream steps, while setProperty keeps supplemental data handy.
     message.setBody(summary)
     message.setProperty("promotionDecision", decision)
     message.setProperty("fastTrack", fastTrack)

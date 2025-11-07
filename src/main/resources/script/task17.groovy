@@ -8,10 +8,12 @@ class Task17EmployeeProfile {
 }
 
 def Message processData(Message message) {
+    // new Task17EmployeeProfile(name: ..., department: ...) uses Groovy's map-style constructor to populate fields.
     def profile = new Task17EmployeeProfile(
             name: message.getProperty("employeeName") ?: "Alex",
             department: message.getProperty("department") ?: "HR")
     def summary = "${profile.name} works in ${profile.department}."
+    // getClass().simpleName returns the runtime type so downstream steps see which class built the data.
     message.setBody(summary)
     message.setProperty("profileClass", profile.getClass().simpleName)
     return message

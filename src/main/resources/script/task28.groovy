@@ -4,12 +4,14 @@ import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
     def employeesText = message.getProperty("employees") ?: "Alex Kim|HR|5, Sam Lee|IT|3, Priya Patel|HR|2"
+    // split/collect turns the CSV into maps, with the inner split("|") unpacking department and tenure values.
     def employees = employeesText.split(",").collect { it.trim() }.findAll { it }
             .collect { entry ->
                 def parts = entry.split("\\|")
                 [name: parts[0], department: parts[1], tenure: parts[2] as Integer]
             }
 
+    // sort { a, b -> ... } defines a comparator that leverages the spaceship operator (<=>) for multi-level ordering.
     def sorted = employees.sort { a, b ->
         int deptCompare = a.department <=> b.department
         if (deptCompare != 0) {
@@ -23,6 +25,7 @@ def Message processData(Message message) {
     }
 
     def lines = sorted.collect { "${it.department}: ${it.name} (${it.tenure} yrs)" }
+    // join("\n") prints each employee on their own line, size() counts the sorted results, and first() grabs the leading entry.
     message.setBody(lines.join("\n"))
     message.setProperty("sortedCount", sorted.size())
     message.setProperty("topEmployee", sorted ? sorted.first().name : "")

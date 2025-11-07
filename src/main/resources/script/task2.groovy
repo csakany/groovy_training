@@ -7,6 +7,7 @@ def Message processData(Message message) {
     def jobTitle = message.getProperty("jobTitle") ?: "Associate"
     def location = message.getProperty("location") ?: "Remote"
 
+    // split(' ') breaks the name into words, findAll { it } removes blanks, collect { it[0] } takes the first letter of each word, and toUpperCase() capitalizes the result
     def initials = name.split(' ').findAll { it }.collect { it[0] }.join('').toUpperCase()
     def badge = """Employee Badge\nName: ${name}\nRole: ${jobTitle}\nLocation: ${location}\nInitials: ${initials}"""
 

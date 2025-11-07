@@ -3,20 +3,26 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
+    // getHeaders() returns a map of adapter headers; the Elvis operator falls back to an empty map when none exist.
     Map headers = message.getHeaders() ?: [:]
+    // headers.get("X-CorrelationId") fetches a specific header value for tracking.
     String correlationId = headers.get("X-CorrelationId") ?: "Unknown"
 
+    // message.getProperty("messageLogFactory") retrieves the CPI logging helper when the runtime provides it.
     def messageLogFactory = message.getProperty("messageLogFactory")
     def messageLog = messageLogFactory?.getMessageLog(message)
     if (messageLog) {
+        // getBody() reads the current payload, and addAttachmentAsString stores it as a text attachment in the log.
         def payload = message.getBody() as String
         messageLog.addAttachmentAsString("PayloadSnapshot", payload, "text/plain")
+        // setStringProperty saves correlation metadata alongside the attachment.
         messageLog.setStringProperty("CorrelationId", correlationId)
         message.setProperty("logAttachmentCreated", true)
     } else {
         message.setProperty("logAttachmentCreated", false)
     }
 
+    // setBody and setProperty capture the correlation ID outcome for downstream visibility.
     message.setBody("Logged header X-CorrelationId: ${correlationId}")
     message.setProperty("loggedHeader", correlationId)
     return message

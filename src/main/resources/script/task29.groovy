@@ -3,10 +3,13 @@
 import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
+    // valueMappingApi is supplied by the runtime; using ?. safely calls getMappedValue only when it exists.
     def valueMappingApi = message.getProperty("valueMappingApi")
     String countryCode = message.getProperty("countryCode") ?: "US"
+    // getMappedValue(domain, sourceType, sourceValue, targetType) looks up the region tied to the incoming code.
     String region = valueMappingApi?.getMappedValue("HR", "CountryCode", countryCode, "Region") ?: "Unknown"
 
+    // setBody surfaces the mapping result and setProperty shares the looked-up region with downstream steps.
     message.setBody("Country ${countryCode} maps to region ${region}")
     message.setProperty("mappedRegion", region)
     return message

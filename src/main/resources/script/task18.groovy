@@ -7,16 +7,19 @@ class Task18PayrollEmployee {
     BigDecimal salary
     String payrollId
 
+    // applyRaise increases the salary field by adding the provided amount with += shorthand.
     void applyRaise(BigDecimal amount) {
         salary += amount
     }
 
+    // hasValidPayrollId uses the Groovy regex operator (==~) to ensure the ID matches three letters followed by four digits.
     boolean hasValidPayrollId() {
         payrollId ==~ /[A-Z]{3}\d{4}/
     }
 }
 
 def Message processData(Message message) {
+    // The map constructor populates the employee fields from message properties with sensible fallbacks.
     def employee = new Task18PayrollEmployee(
             name: message.getProperty("employeeName") ?: "Taylor",
             salary: (message.getProperty("salary") ?: 50000) as BigDecimal,
@@ -24,10 +27,12 @@ def Message processData(Message message) {
 
     boolean validId = employee.hasValidPayrollId()
     if (validId) {
+        // applyRaise(2500G) adds a 2,500 raise only when the payroll ID passes validation.
         employee.applyRaise(2500G)
     }
 
     def summary = "${employee.name} now earns ${employee.salary} (Payroll ID valid: ${validId})"
+    // setBody reports the outcome and setProperty exposes whether the raise logic ran.
     message.setBody(summary)
     message.setProperty("raiseApplied", validId)
     message.setProperty("payrollIdValid", validId)

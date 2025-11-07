@@ -4,12 +4,14 @@ import com.sap.gateway.ip.core.customdev.util.Message
 
 def Message processData(Message message) {
     def sessionsText = message.getProperty("sessions") ?: ""
+    // collect transforms each CSV entry, split("|") separates name and status, and equalsIgnoreCase compares text without case sensitivity.
     def sessions = sessionsText.split(",").collect { it.trim() }.findAll { it }
             .collect { entry ->
                 def parts = entry.split("\\|")
                 [name: parts[0], status: parts.length > 1 ? parts[1] : "Scheduled"]
             }
 
+    // findAll filters the list into completed and upcoming buckets using the status property.
     def completed = sessions.findAll { it.status.equalsIgnoreCase("Completed") }
     def upcoming = sessions.findAll { !it.status.equalsIgnoreCase("Completed") }
 
@@ -19,6 +21,7 @@ def Message processData(Message message) {
     summary.append("\nUpcoming Sessions:\n")
     upcoming.each { summary.append("- ${it.name} (${it.status})\n") }
 
+    // toString() reveals the accumulated text and trim() removes trailing whitespace before publishing.
     message.setBody(summary.toString().trim())
     message.setProperty("completedCount", completed.size())
     message.setProperty("upcomingCount", upcoming.size())

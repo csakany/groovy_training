@@ -5,15 +5,18 @@ import groovy.xml.MarkupBuilder
 
 def Message processData(Message message) {
     def employeeText = message.getProperty("employeeList") ?: "Alex Kim|HR,Sam Lee|IT"
+    // split/collect/trim prepares employee entries, and the inner split("|") pulls name/department pairs from each string.
     def employees = employeeText.split(",").collect { it.trim() }.findAll { it }
             .collect { entry ->
                 def parts = entry.split("\\|")
                 [name: parts[0], department: parts.length > 1 ? parts[1] : "General"]
             }
 
+    // StringWriter captures the generated XML in memory and MarkupBuilder turns Groovy closures into tag structures.
     def writer = new StringWriter()
     def builder = new MarkupBuilder(writer)
     builder.Employees {
+        // eachWithIndex supplies both the employee map and its index so we can assign sequential IDs.
         employees.eachWithIndex { info, idx ->
             Employee(id: idx + 1) {
                 Name(info.name)
@@ -23,6 +26,7 @@ def Message processData(Message message) {
     }
 
     def xmlOutput = writer.toString()
+    // toString() unwraps the writer contents and setProperty notes how many employees were encoded.
     message.setBody(xmlOutput)
     message.setProperty("employeeCount", employees.size())
     return message
