@@ -16,8 +16,8 @@ class StubMessageLog {
 }
 
 class StubMessageLogFactory {
-    StubMessageLog log = new StubMessageLog()
-    StubMessageLog getMessageLog(Message message) { log }
+    StubMessageLogToDo log = new StubMessageLogToDo()
+    StubMessageLogToDo getMessageLog(Message message) { log }
 }
 
 GroovyShell shell = new GroovyShell()
@@ -27,7 +27,7 @@ Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)
 msg.setBody("Sample payload for attachment")
 msg.setHeader("X-CorrelationId", "HR-123")
-msg.setProperty("messageLogFactory", new StubMessageLogFactory())
+msg.setProperty("messageLogFactory", new StubMessageLogFactoryToDo())
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
 println("Body:\n${msg.getBody()}")

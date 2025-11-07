@@ -2,6 +2,8 @@
 // It reinforces the fundamentals from slides 2-4 and the CPI message techniques on slide 47 in a single onboarding example.
 import com.sap.gateway.ip.core.customdev.util.Message
 
+import java.math.RoundingMode
+
 def Message processData(Message message) {
     def name = message.getProperty("employeeName") ?: "New Hire"
     def department = message.getProperty("department") ?: "Company"
@@ -11,7 +13,7 @@ def Message processData(Message message) {
 
     def summary = """Welcome ${name} to the ${department} team!\n""" +
             """Employee ID (${idValue.getClass().simpleName}): ${idValue}\n""" +
-            """Salary (${salaryValue.getClass().simpleName}): ${salaryValue.setScale(2, BigDecimal.ROUND_HALF_UP)}\n""" +
+            """Salary (${salaryValue.getClass().simpleName}): ${salaryValue.setScale(2, RoundingMode.HALF_UP)}\n""" +
             """Active (${activeValue.getClass().simpleName}): ${activeValue}"""
 
     message.setBody(summary)

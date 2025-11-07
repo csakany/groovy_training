@@ -4,7 +4,7 @@ import org.apache.camel.Exchange
 import org.apache.camel.impl.DefaultCamelContext
 import org.apache.camel.support.DefaultExchange
 
-class StubValueMappingApi {
+class StubValueMappingApiToDo {
     Map mappings
     String getMappedValue(String agency, String sourceScheme, String sourceValue, String targetScheme) {
         mappings.get("${sourceScheme}:${sourceValue}")
@@ -18,7 +18,7 @@ Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)
 msg.setBody("")
 msg.setProperty("countryCode", "US")
-msg.setProperty("valueMappingApi", new StubValueMappingApi(mappings: ["CountryCode:US": "North America"]))
+msg.setProperty("valueMappingApi", new StubValueMappingApiToDo(mappings: ["CountryCode:US": "North America"]))
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
 println("Body:\n${msg.getBody()}")

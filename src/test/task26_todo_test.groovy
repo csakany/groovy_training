@@ -4,7 +4,7 @@ import org.apache.camel.Exchange
 import org.apache.camel.impl.DefaultCamelContext
 import org.apache.camel.support.DefaultExchange
 
-class StubMessageLog {
+class StubMessageLogToDo {
     List attachments = []
     Map properties = [:]
     void addAttachmentAsString(String name, String content, String type) {
@@ -15,9 +15,9 @@ class StubMessageLog {
     }
 }
 
-class StubMessageLogFactory {
-    StubMessageLog log = new StubMessageLog()
-    StubMessageLog getMessageLog(Message message) { log }
+class StubMessageLogFactoryToDo {
+    StubMessageLogToDo log = new StubMessageLogToDo()
+    StubMessageLogToDo getMessageLog(Message message) { log }
 }
 
 GroovyShell shell = new GroovyShell()
@@ -27,7 +27,7 @@ Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)
 msg.setBody("Sample payload for attachment")
 msg.setHeader("X-CorrelationId", "HR-123")
-msg.setProperty("messageLogFactory", new StubMessageLogFactory())
+msg.setProperty("messageLogFactory", new StubMessageLogFactoryToDo())
 script.processData(msg)
 exchange.getIn().setBody(msg.getBody())
 println("Body:\n${msg.getBody()}")

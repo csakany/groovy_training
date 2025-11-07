@@ -2,7 +2,7 @@
 // It continues the XML exploration from slides 29-32 and keeps the CPI message workflow from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 import groovy.util.XmlSlurper
-import groovy.xml.XmlParser
+import groovy.util.XmlParser
 
 def Message processData(Message message) {
     def xmlText = message.getBody() as String
