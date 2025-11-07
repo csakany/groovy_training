@@ -1,3 +1,5 @@
+Practice note: Each script concludes with a "Practice Task" comment that reinforces the listed helpers.
+
 1 - Welcome new hire & demonstrate dynamic typing (getProperty, toBoolean, setScale, setBody)
 2 - Format badge text with string helpers (split, findAll, collect, toUpperCase)
 3 - Calculate payroll adjustments with BigDecimal (as BigDecimal, setScale, arithmetic operators)

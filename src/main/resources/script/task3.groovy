@@ -16,3 +16,11 @@ def Message processData(Message message) {
     message.setProperty("netComp", netComp.setScale(2, BigDecimal.ROUND_HALF_UP))
     return message
 }
+
+/*
+Practice Task 3:
+1. Read the base salary, bonus, and tax rate from message properties.
+2. Add salary and bonus to calculate total compensation.
+3. Subtract tax from the total to show the net amount.
+4. Present the results in the payload and store the totals as properties using the same arithmetic helpers.
+*/

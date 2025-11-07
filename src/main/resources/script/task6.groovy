@@ -30,3 +30,10 @@ def Message processData(Message message) {
     message.setProperty("moduleCount", modules.size())
     return message
 }
+
+/*
+Practice Task 6:
+- Read comma-separated team members and training modules from properties.
+- Use a for-each loop to list members and a while loop to number modules just like above.
+- Publish the combined summary in the body and track counts as properties.
+*/

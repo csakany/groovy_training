@@ -22,3 +22,10 @@ def Message processData(Message message) {
     }
     return message
 }
+
+/*
+Practice Task 9:
+1. Read the requestedRaise property and attempt to convert it to a number inside a try block.
+2. Provide a helpful error message and flag when conversion fails in the catch block.
+3. Use a finally block to record that the validation ran, mirroring the structure above.
+*/

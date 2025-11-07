@@ -38,3 +38,9 @@ def Message processData(Message message) {
     message.setProperty("payrollIdValid", validId)
     return message
 }
+
+/*
+Practice Task 18:
+- Create a payroll employee class with salary and payrollId fields, plus helpers to apply raises and validate the ID with the same regex.
+- Only adjust the salary when the ID matches the expected format and record both outcomes as properties.
+*/

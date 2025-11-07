@@ -34,3 +34,9 @@ def Message processData(Message message) {
     message.setProperty("delayAppliedMillis", delayMillis)
     return message
 }
+
+/*
+Practice Task 30:
+- Sleep for a configurable delay, parse both the employee body and directory XML, and locate the matching department name.
+- Add or update the department information in the employee XML, serialize the result, and surface helpful properties just like the enrichment above.
+*/

@@ -21,3 +21,9 @@ def Message processData(Message message) {
     message.setProperty("fullName", fullName)
     return message
 }
+
+/*
+Practice Task 27:
+- Create a helper method that assembles a display name from title, first name, and last name just like buildDisplayName.
+- Use it inside processData, place the result in the body, and store it as a property for downstream mapping steps.
+*/

@@ -31,3 +31,9 @@ def Message processData(Message message) {
     message.setProperty("employeeCount", employees.size())
     return message
 }
+
+/*
+Practice Task 23:
+- Read employee entries like "Name|Department" from a property and use MarkupBuilder to generate an Employees XML document.
+- Output the XML in the body and store the total number of employees as a property following the example.
+*/

@@ -33,3 +33,11 @@ def Message processData(Message message) {
     message.setProperty("activeType", activeValue.getClass().simpleName)
     return message
 }
+
+/*
+Practice Task 1:
+- Read the employee name, department, ID, salary, and active status from message properties.
+- Build a short summary that uses string interpolation and shows the Groovy types you converted to.
+- Store helpful derived values such as uppercase department, name length, or detected type names.
+- Focus on the same helpers shown above (property access, casting, formatting).
+*/

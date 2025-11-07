@@ -18,3 +18,11 @@ def Message processData(Message message) {
     message.setProperty("averageHours", String.format('%.1f', average))
     return message
 }
+
+/*
+Practice Task 8:
+1. Read daily hour values from the hourLogs property.
+2. Convert them into integers with collect and related helpers.
+3. Calculate the total and average hours using the same list operations.
+4. Present the results in the body and store the summary numbers as properties.
+*/

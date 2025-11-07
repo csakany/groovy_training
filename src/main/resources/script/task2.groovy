@@ -16,3 +16,11 @@ def Message processData(Message message) {
     message.setProperty("employeeInitials", initials)
     return message
 }
+
+/*
+Practice Task 2:
+- Read an employee name, job title, and location from message properties.
+- Create a multi-line badge including each field plus initials computed from the name.
+- Store at least one derived value such as the badge label or initials back onto the message.
+- Reuse the helpers above (split, findAll, collect, join, toUpperCase, interpolation).
+*/

@@ -16,3 +16,10 @@ def Message processData(Message message) {
     message.setProperty("hrHeadcount", headcount.HR)
     return message
 }
+
+/*
+Practice Task 15:
+1. Create a map of departments and their headcount.
+2. Update one of the existing entries and add a brand new department.
+3. Print each entry on its own line and report helpful counts using the same map helpers.
+*/

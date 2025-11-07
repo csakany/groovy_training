@@ -15,3 +15,10 @@ def Message processData(Message message) {
     message.setProperty("greetingsCount", greetings.size())
     return message
 }
+
+/*
+Practice Task 12:
+1. Read a list of names from a property.
+2. Create a closure that accepts a name and returns a personalized greeting.
+3. Use collect with the closure to build the greeting lines and count how many you generated.
+*/

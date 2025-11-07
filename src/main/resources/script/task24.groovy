@@ -21,3 +21,9 @@ def Message processData(Message message) {
     message.setProperty("removedCount", removed.size())
     return message
 }
+
+/*
+Practice Task 24:
+- Parse the XML with XmlParser, remove any Employee nodes that are not active, and serialize the updated XML with XmlUtil.
+- Store how many nodes you removed as a property to mirror the transformation above.
+*/

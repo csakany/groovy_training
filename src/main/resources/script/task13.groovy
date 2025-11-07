@@ -21,3 +21,10 @@ def Message processData(Message message) {
     message.setProperty("matchCount", matches.size())
     return message
 }
+
+/*
+Practice Task 13:
+1. Create a small list of maps containing name and dept values.
+2. Read targetDept from the message and use findAll with a closure to keep matching colleagues.
+3. Print the matches or a friendly "not found" message following the pattern above.
+*/

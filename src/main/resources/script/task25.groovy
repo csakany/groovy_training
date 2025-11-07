@@ -28,3 +28,9 @@ def Message processData(Message message) {
     message.setProperty("updatedJson", updatedJson)
     return message
 }
+
+/*
+Practice Task 25:
+- Load the employee JSON from a property with JsonSlurper, count the skills, and adjust the salary in the same way.
+- Write a summary to the body and store both the counts and updated JSON as properties for downstream steps.
+*/

@@ -31,3 +31,9 @@ def Message processData(Message message) {
     message.setProperty("topEmployee", sorted ? sorted.first().name : "")
     return message
 }
+
+/*
+Practice Task 28:
+- Read employees in the format Name|Department|Tenure, then sort by department, tenure (descending), and finally name using a custom comparator.
+- Output the sorted list and capture helpful properties such as the top employee just like the example.
+*/

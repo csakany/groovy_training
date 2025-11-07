@@ -27,3 +27,10 @@ def Message processData(Message message) {
     message.setProperty("upcomingCount", upcoming.size())
     return message
 }
+
+/*
+Practice Task 7:
+- Read session entries like "Security|Completed" from a property.
+- Use collect and findAll to separate completed versus scheduled sessions.
+- Present both lists in the payload and capture their counts as message properties.
+*/

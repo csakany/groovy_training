@@ -11,3 +11,9 @@ def Message processData(Message message) {
     message.setProperty("totalDays", trainingDays.size())
     return message
 }
+
+/*
+Practice Task 16:
+1. Create a numeric range such as 1..5 and transform it into onboarding day messages.
+2. Output each line in the body and record the total number of days as a property, mirroring the range helpers above.
+*/

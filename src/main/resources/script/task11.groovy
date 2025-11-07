@@ -26,3 +26,10 @@ def Message processData(Message message) {
     message.setProperty("engagementNote", note)
     return message
 }
+
+/*
+Practice Task 11:
+- Read an engagement score (or similar metric) from properties and attempt to convert it to an Integer within a try block.
+- Branch on the parsed value to craft a note, or fall back gracefully in the catch block when parsing fails.
+- Record both the raw entry and the explanatory note as properties following the example above.
+*/

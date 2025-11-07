@@ -25,3 +25,9 @@ def Message processData(Message message) {
     message.setProperty("contactPhone", phone)
     return message
 }
+
+/*
+Practice Task 21:
+- Parse the XML body with XmlSlurper, navigate to the first User element, and extract displayName, division, email, and businessPhone.
+- Present the contact details in the payload and store them as properties using the same approach.
+*/

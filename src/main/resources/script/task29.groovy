@@ -14,3 +14,9 @@ def Message processData(Message message) {
     message.setProperty("mappedRegion", region)
     return message
 }
+
+/*
+Practice Task 29:
+- Retrieve the ValueMapping API from message properties, request a mapped value such as CountryCode -> Region, and present the result.
+- Store the looked-up value as a property, mirroring the integration shown above.
+*/

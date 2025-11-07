@@ -18,3 +18,9 @@ def Message processData(Message message) {
     message.setProperty("profileClass", profile.getClass().simpleName)
     return message
 }
+
+/*
+Practice Task 17:
+1. Create your own profile class with name and department fields.
+2. Populate it using message properties, print a short description, and capture the class name in a property just like above.
+*/

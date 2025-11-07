@@ -24,3 +24,9 @@ def Message processData(Message message) {
     message.setProperty("parserType", parsed.getClass().simpleName)
     return message
 }
+
+/*
+Practice Task 22:
+- Parse the same XML with XmlSlurper and XmlParser, extract a shared field, and compare the resulting Groovy types.
+- Present the comparison in the body and store the type names as properties as shown above.
+*/

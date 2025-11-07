@@ -29,3 +29,9 @@ def Message processData(Message message) {
     message.setProperty("roles", [intern.role(), mentor.role()].join(', '))
     return message
 }
+
+/*
+Practice Task 20:
+1. Create an abstract staff member class with an abstract role method and add two subclasses that return different role names.
+2. Build instances from message properties, print the role summary, and store the role list just like the example.
+*/

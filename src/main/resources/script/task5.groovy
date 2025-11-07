@@ -26,3 +26,10 @@ def Message processData(Message message) {
     message.setProperty("trainingStatus", status)
     return message
 }
+
+/*
+Practice Task 5:
+- Read a completion percentage from message properties.
+- Use a range-based switch like the example to map the percentage to a clear HR status.
+- Place the status in the payload and store it as a property for downstream use.
+*/

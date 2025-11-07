@@ -31,3 +31,9 @@ def Message processData(Message message) {
     message.setProperty("role", "TeamLead")
     return message
 }
+
+/*
+Practice Task 19:
+1. Create a base team member class with an introduce method and extend it with a team lead subclass.
+2. Call super inside the override to keep the base introduction, add your own details, and print the combined result.
+*/

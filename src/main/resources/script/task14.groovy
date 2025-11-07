@@ -16,3 +16,10 @@ def Message processData(Message message) {
     message.setProperty("firstCourse", courses.first())
     return message
 }
+
+/*
+Practice Task 14:
+1. Start with a list of onboarding courses.
+2. Append another course, remove one that is no longer needed, and present the new plan.
+3. Share helpful metadata like the total count or first course using the same list helpers.
+*/

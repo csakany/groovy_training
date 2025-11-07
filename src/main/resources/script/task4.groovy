@@ -30,3 +30,11 @@ def Message processData(Message message) {
     message.setProperty("fastTrackNote", fastTrackNote)
     return message
 }
+
+/*
+Practice Task 4:
+- Read employee name, performance rating, and tenure from message properties.
+- Recreate the control flow above to choose between promotion, mentoring, or improvement actions.
+- Add a ternary expression that stores a fast-track note when the criteria are met.
+- Keep the focus on if/else-if/else and ternary flow as shown in the demonstration.
+*/

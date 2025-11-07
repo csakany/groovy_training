@@ -27,3 +27,9 @@ def Message processData(Message message) {
     message.setProperty("loggedHeader", correlationId)
     return message
 }
+
+/*
+Practice Task 26:
+- Read a useful header such as X-CorrelationId, log the payload as an attachment when messageLogFactory is available, and record whether the snapshot was created.
+- Echo the header in the body and store the values as properties, following the monitoring pattern above.
+*/

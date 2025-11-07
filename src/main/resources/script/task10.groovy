@@ -31,3 +31,10 @@ def Message processData(Message message) {
     message.setProperty("updatedSalary", updatedSalary.setScale(2, BigDecimal.ROUND_HALF_UP))
     return message
 }
+
+/*
+Practice Task 10:
+- Create helper methods for the summary and raise calculation, including a default percentage parameter.
+- Read the same properties (name, role, salary, optional raise percent) and combine the helper outputs in the body.
+- Capture useful metrics such as the updated salary or summary length as properties using the approach above.
+*/
