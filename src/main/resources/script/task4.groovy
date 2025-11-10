@@ -10,11 +10,15 @@ def Message processData(Message message) {
     int rating = (message.getProperty("performanceRating") ?: "0") as Integer
 
     String decision
-    if (years >= 5 && rating >= 4) {
+    if (!years) {
+        throw new RuntimeException("Years is missing from the configuration!")
+    } else if (years >= 5 && rating >= 4) {
         decision = "Promote ${name} this cycle."
     } else if (rating >= 3) {
         decision = "Offer mentorship and revisit next cycle."
-    } else {
+    } /*else if (rating >= 2) { Part of Task
+        decision = "Provide additional training and monitor progress."
+    }*/ else {
         decision = "Create an improvement plan with ${name}."
     }
 
@@ -22,7 +26,7 @@ def Message processData(Message message) {
     // The ternary operator condition ? trueValue : falseValue keeps the fast-track message concise for reviewers.
     String fastTrackNote = fastTrack ? "Eligible for fast-track recognition." : "Standard review cadence applies."
 
-    def summary = """Employee: ${name}\nYears of Service: ${years}\nRating: ${rating}\nDecision: ${decision}\n${fastTrackNote}"""
+    def summary = "Employee: ${name}\nYears of Service: ${years}\nRating: ${rating}\nDecision: ${decision}\n${fastTrackNote}"
     // setBody replaces the payload shown to downstream steps, while setProperty keeps supplemental data handy.
     message.setBody(summary)
     message.setProperty("promotionDecision", decision)
@@ -33,8 +37,5 @@ def Message processData(Message message) {
 
 /*
 Practice Task 4:
-- Read employee name, performance rating, and tenure from message properties.
-- Recreate the control flow above to choose between promotion, mentoring, or improvement actions.
-- Add a ternary expression that stores a fast-track note when the criteria are met.
-- Keep the focus on if/else-if/else and ternary flow as shown in the demonstration.
+1. Add a new else if condition with a rating greater and equal than 2
 */

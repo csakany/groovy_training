@@ -8,9 +8,15 @@ def Message processData(Message message) {
         def request = message.getProperty("requestedRaise") ?: "0"
         // as BigDecimal converts the text into a precise decimal number for financial calculations.
         def raisePercent = request as BigDecimal
+
+        if (raisePercent >= 10) {
+            throw new RuntimeException("An error occurred during the operation")
+        }
+
         // setBody and setProperty record success details when the conversion succeeds.
         message.setBody("Requested raise: ${raisePercent}%")
         message.setProperty("raiseValid", true)
+
     } catch (Exception ex) {
         // catch blocks handle conversion failures by writing friendly error feedback and capturing ex.message.
         message.setBody("Invalid raise value provided.")
@@ -25,7 +31,5 @@ def Message processData(Message message) {
 
 /*
 Practice Task 9:
-1. Read the requestedRaise property and attempt to convert it to a number inside a try block.
-2. Provide a helpful error message and flag when conversion fails in the catch block.
-3. Use a finally block to record that the validation ran, mirroring the structure above.
+1. If raise is more than 10% Throw an error
 */

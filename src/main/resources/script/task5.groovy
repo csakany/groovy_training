@@ -8,7 +8,10 @@ def Message processData(Message message) {
     String status
     // switch evaluates the completion value once and walks through range cases like 0..49 until it finds a match.
     switch (completion) {
-        case 0..49:
+        /*case 0..50: using range
+            status = "Learning just started."
+            break*/
+        case { it < 50 }:
             status = "Learning just started."
             break
         case 50..89:
@@ -29,7 +32,5 @@ def Message processData(Message message) {
 
 /*
 Practice Task 5:
-- Read a completion percentage from message properties.
-- Use a range-based switch like the example to map the percentage to a clear HR status.
-- Place the status in the payload and store it as a property for downstream use.
+1. Create a new case using 80..89 or using a closure and change input parameter to test if it is working correctly
 */

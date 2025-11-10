@@ -2,6 +2,10 @@
 // It ties into the closure techniques from slides 14-16 plus the collection operations from slides 17-20 and message handling from slide 47.
 import com.sap.gateway.ip.core.customdev.util.Message
 
+Boolean matcher2(LinkedHashMap<String, String> person, targetDept) {
+    return person.dept == targetDept
+}
+
 def Message processData(Message message) {
     def targetDept = message.getProperty("targetDept") ?: "HR"
     def colleagues = [
@@ -11,9 +15,25 @@ def Message processData(Message message) {
         [name: 'Morgan', dept: 'Finance']
     ]
     // matcher is a closure that checks each map's dept field against the target department.
+    /* ---------------- Using a closure -------------- */
     def matcher = { person -> person.dept == targetDept }
+    /* ---------------- Using a closure -------------- */
     // findAll(matcher) returns only the colleagues whose department matches the filter.
-    def matches = colleagues.findAll(matcher)
+
+    /* ---------------- Using matcher2 -------------- */
+   // def matches = colleagues.findAll { person -> matcher2(person, targetDept) }
+    /* ---------------- Using matcher2 -------------- */
+
+    /* ---------------- Using each and add -------------- */
+    def matches = []
+
+    colleagues.each { it ->
+        if (it.dept == targetDept) {
+            matches.add(it)
+        }
+    }
+    /* ---------------- Using each and add -------------- */
+
     // collect builds readable lines describing each matching colleague.
     def lines = matches.collect { "${it.name} works in ${it.dept}." }
     // join("\n") glues the lines together, while the ternary falls back to a default message when nothing matched.
@@ -24,7 +44,4 @@ def Message processData(Message message) {
 
 /*
 Practice Task 13:
-1. Create a small list of maps containing name and dept values.
-2. Read targetDept from the message and use findAll with a closure to keep matching colleagues.
-3. Print the matches or a friendly "not found" message following the pattern above.
 */

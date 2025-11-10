@@ -7,11 +7,13 @@ def Message processData(Message message) {
     def modulesText = message.getProperty("moduleList") ?: ""
     // split(",") breaks comma-separated lists, collect { it.trim() } removes extra spaces, and findAll { it } drops blanks.
     def members = membersText.split(",").collect { it.trim() }.findAll { it }
+    def filteredMembers = members.findAll { it == "Alex Kim" }
+
     def modules = modulesText.split(",").collect { it.trim() }.findAll { it }
 
     // new StringBuilder("...") creates a mutable buffer so append(...) can efficiently add lines.
     def roster = new StringBuilder("Team Members:\n")
-    for (member in members) {
+    for (member in filteredMembers) {
         roster.append("- ${member}\n")
     }
 
@@ -33,7 +35,5 @@ def Message processData(Message message) {
 
 /*
 Practice Task 6:
-- Read comma-separated team members and training modules from properties.
-- Use a for-each loop to list members and a while loop to number modules just like above.
-- Publish the combined summary in the body and track counts as properties.
+1. Loop through the first 3 elements, write the elements in a String using Stringbuilder
 */
