@@ -1,0 +1,70 @@
+{
+  "CompoundEmployee": [
+    {
+      "id": "200001",
+      "person": {
+        "person_id_external": "jdoe",
+        "personal_information": {
+          "formal_name": "John Doe",
+          "first_name": "John",
+          "last_name": "Doe"
+        },
+        "email_information": {
+          "email_address": "John.Doe@Example.COM"
+        },
+        "phone_information": {
+          "phone_number": "1234567"
+        },
+        "employment_information": {
+          "job_information": [
+            {
+              "start_date": "2020-01-01",
+              "end_date": "2022-12-31",
+              "job_title": "Sales Rep",
+              "division": "Sales EU",
+              "manager_id": "mgr_001",
+              "location": "Budapest"
+            },
+            {
+              "start_date": "2023-01-01",
+              "end_date": "9999-12-31",
+              "job_title": "Senior Sales Rep",
+              "division": "Sales EU",
+              "manager_id": "mgr_002",
+              "location": "Budapest"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "200002",
+      "person": {
+        "person_id_external": "asmith",
+        "personal_information": {
+          "formal_name": "",
+          "first_name": "Alice",
+          "last_name": "Smith"
+        },
+        "email_information": {
+          "email_address": "alice.SMITH@corp.Example.com"
+        },
+        "phone_information": {
+          "phone_number": "+36-1-555-0000"
+        },
+        "employment_information": {
+          "job_information": [
+            {
+              "start_date": "2024-06-01",
+              "end_date": "9999-12-31",
+              "job_title": "HR Specialist",
+              "division": "HR",
+              "manager_id": "mgr_003",
+              "location": "Győr"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

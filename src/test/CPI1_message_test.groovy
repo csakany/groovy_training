@@ -1,0 +1,28 @@
+import com.sap.gateway.ip.core.customdev.util.Message
+import org.apache.camel.CamelContext
+import org.apache.camel.Exchange
+import org.apache.camel.impl.DefaultCamelContext
+import org.apache.camel.support.DefaultExchange
+
+GroovyShell shell = new GroovyShell()
+Script script = shell.parse(new File('../../src/main/resources/script/CPI1_message.groovy'))
+CamelContext context = new DefaultCamelContext()
+Exchange exchange = new DefaultExchange(context)
+Message msg = new Message(exchange)
+msg.setBody("Hello World!")
+msg.setProperty("country", "Germany")
+msg.setHeader("Content-Type", "application/xml")
+
+
+
+script.processData(msg)
+
+exchange.getIn().setBody(msg.getBody())
+
+println("Body:\n${msg.getBody()}")
+
+println('Properties:')
+msg.getProperties().each { k, v -> println("  $k = $v") }
+
+println "\nHeaders:"
+msg.getHeaders().each { k, v -> println "  $k = $v" }
