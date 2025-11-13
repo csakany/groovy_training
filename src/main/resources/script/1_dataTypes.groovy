@@ -6,6 +6,9 @@ println "Integer example (age): $age"
 println "Type: ${age.getClass().simpleName}"
 
 // Long
+int test = 7900000000
+println test
+
 long population = 7_900_000_000L
 println "Long example (world population): $population"
 
