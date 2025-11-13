@@ -8,7 +8,7 @@
       "args": [
         "-Dgroovy.grape.enable=false",
         "-cp",
-        "${workspaceFolder}/lib/*:${workspaceFolder}/src/main/resources:${workspaceFolder}/src/test",
+        "${workspaceFolder}/lib/cpi-mock-msg.jar:${workspaceFolder}/lib/*:${workspaceFolder}/src/main/resources:${workspaceFolder}/src/test",
         "groovy.ui.GroovyMain",
         "${file}"
       ],
@@ -24,8 +24,8 @@
       "windows": {
         "args": [
           "-Dgroovy.grape.enable=false",
-          "-cp",
-          "${workspaceFolder}\\lib\\*;${workspaceFolder}\\src\\main\\resources;${workspaceFolder}\\src\\test",
+        "-cp",
+        "${workspaceFolder}\\lib\\cpi-mock-msg.jar;${workspaceFolder}\\lib\\*;${workspaceFolder}\\src\\main\\resources;${workspaceFolder}\\src\\test",
           "groovy.ui.GroovyMain",
           "${file}"
         ]
