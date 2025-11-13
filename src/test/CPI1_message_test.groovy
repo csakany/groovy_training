@@ -5,7 +5,7 @@ import org.apache.camel.impl.DefaultCamelContext
 import org.apache.camel.support.DefaultExchange
 
 GroovyShell shell = new GroovyShell()
-Script script = shell.parse(new File('../../src/main/resources/script/CPI1_message.groovy'))
+Script script = shell.parse(new File('src/main/resources/script/CPI1_message.groovy'))
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)

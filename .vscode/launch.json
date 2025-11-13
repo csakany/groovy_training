@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug current Groovy file",
+      "request": "launch",
+      "mainClass": "groovy.ui.GroovyMain",
+      "cwd": "${workspaceFolder}",
+      "vmArgs": "-Dgroovy.grape.enable=false -Dgroovy.full.debug=true",
+      "classPaths": [
+        "${workspaceFolder}/lib/*",
+        "${workspaceFolder}/src/main/resources",
+        "${workspaceFolder}/src/test"
+      ],
+      "args": "${file}"
+    }
+  ]
+}
