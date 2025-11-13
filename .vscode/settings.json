@@ -4,10 +4,10 @@
   "code-runner.ignoreSelection": true,
   "code-runner.cwd": "$workspaceRoot",
   "code-runner.executorMap": {
-    "groovy": "java -cp \"lib/*:src/main/resources:src/test\" groovy.ui.GroovyMain \"$fullFileName\""
+    "groovy": "java -cp \"lib/*;src/main/resources;src/test\" groovy.ui.GroovyMain \"$fullFileName\""
   },
   "code-runner.executorMapByFileExtension": {
-    ".groovy": "java -cp \"lib/*:src/main/resources:src/test\" groovy.ui.GroovyMain \"$fullFileName\""
+    ".groovy": "java -cp \"lib/*;src/main/resources;src/test\" groovy.ui.GroovyMain \"$fullFileName\""
   },
   "java.project.sourcePaths": [
     "src/test",
