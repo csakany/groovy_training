@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Groovy script",
+      "type": "process",
+      "command": "java",
+      "args": [
+        "-Dgroovy.grape.enable=false",
+        "-cp",
+        "${workspaceFolder}/lib/*:${workspaceFolder}/src/main/resources:${workspaceFolder}/src/test",
+        "groovy.ui.GroovyMain",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "windows": {
+        "args": [
+          "-Dgroovy.grape.enable=false",
+          "-cp",
+          "${workspaceFolder}\\lib\\*;${workspaceFolder}\\src\\main\\resources;${workspaceFolder}\\src\\test",
+          "groovy.ui.GroovyMain",
+          "${file}"
+        ]
+      }
+    }
+  ]
+}
