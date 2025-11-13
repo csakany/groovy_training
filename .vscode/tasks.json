@@ -3,11 +3,12 @@
   "tasks": [
     {
       "label": "Run Groovy script",
-      "type": "shell",
+      "type": "process",
       "command": "java",
       "args": [
+        "-Dgroovy.grape.enable=false",
         "-cp",
-        "${workspaceFolder}/lib/\\*:${workspaceFolder}/src/main/resources:${workspaceFolder}/src/test",
+        "${workspaceFolder}/lib/*:${workspaceFolder}/src/main/resources:${workspaceFolder}/src/test",
         "groovy.ui.GroovyMain",
         "${file}"
       ],
@@ -22,6 +23,7 @@
       "problemMatcher": [],
       "windows": {
         "args": [
+          "-Dgroovy.grape.enable=false",
           "-cp",
           "${workspaceFolder}\\lib\\*;${workspaceFolder}\\src\\main\\resources;${workspaceFolder}\\src\\test",
           "groovy.ui.GroovyMain",

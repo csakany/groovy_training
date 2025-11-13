@@ -9,11 +9,25 @@
       "cwd": "${workspaceFolder}",
       "vmArgs": "-Dgroovy.grape.enable=false -Dgroovy.full.debug=true",
       "classPaths": [
-        "${workspaceFolder}/lib/*",
+        "${workspaceFolder}/lib/groovy-all-2.4.21.jar",
+        "${workspaceFolder}/lib/cloud.integration.script.apis-2.7.1.jar",
+        "${workspaceFolder}/lib/cpi-mock-msg.jar",
+        "${workspaceFolder}/lib/camel-api-3.14.7.jar",
+        "${workspaceFolder}/lib/camel-base-3.14.7.jar",
+        "${workspaceFolder}/lib/camel-base-engine-3.14.7.jar",
+        "${workspaceFolder}/lib/camel-core-engine-3.14.7.jar",
+        "${workspaceFolder}/lib/camel-core-languages-3.14.7.jar",
+        "${workspaceFolder}/lib/camel-core-model-3.14.7.jar",
+        "${workspaceFolder}/lib/camel-support-3.14.7.jar",
+        "${workspaceFolder}/lib/camel-util-3.14.7.jar",
+        "${workspaceFolder}/lib/slf4j-api-1.7.36.jar",
+        "${workspaceFolder}/lib/slf4j-simple-1.7.36.jar",
         "${workspaceFolder}/src/main/resources",
         "${workspaceFolder}/src/test"
       ],
-      "args": "${file}"
+      "args": "${file}",
+      "console": "integratedTerminal",
+      "shortenCommandLine": "none"
     }
   ]
 }
