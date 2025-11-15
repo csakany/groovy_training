@@ -5,13 +5,13 @@ import org.apache.camel.impl.DefaultCamelContext
 import org.apache.camel.support.DefaultExchange
 
 GroovyShell shell = new GroovyShell()
-Script script = shell.parse(new File('../../src/main/resources/script/CPI2_XMLSlurper_XMLParser.groovy'))
+Script script = shell.parse(new File('src/main/resources/script/CPI2_XMLSlurper_XMLParser.groovy'))
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 Message msg = new Message(exchange)
 
 
-def xmlContent = new File('../../data/in/CE_response.xml').text
+def xmlContent = new File('data/in/CE_response.xml').text
 msg.setBody(xmlContent)
 
 script.processData(msg)
